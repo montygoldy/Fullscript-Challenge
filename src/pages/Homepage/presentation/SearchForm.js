@@ -1,3 +1,6 @@
+// Lib
+import SearchIcon from '@material-ui/icons/Search';
+
 
 const SearchForm =  ({ queryString, handleOnChange, handleOnSearchClick, onKeyPress, disabled }) => {
   return (
@@ -7,19 +10,19 @@ const SearchForm =  ({ queryString, handleOnChange, handleOnSearchClick, onKeyPr
       <input
         type="text"
         name="search"
-        className="input"
+        className="search-input"
         placeholder="Search pictures"
-        value={queryString}
+        defaultValue={queryString}
         onChange={handleOnChange}
       />
       <button 
         type="submit" 
-        className="button" 
+        className="submit-button" 
         onClick={handleOnSearchClick}
         onKeyPress={onKeyPress}
         disabled={disabled}
       >
-        Search Photos
+        <SearchIcon className="search-icon" />
       </button>
     </form>
   );

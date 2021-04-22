@@ -1,12 +1,15 @@
 html {
   font-size: 62.5%; }
 
-* {
+*,
+*:hover,
+*:focus {
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: -moz-none;
   -o-user-select: none;
-  user-select: none; }
+  user-select: none;
+  outline: none; }
 
 input {
   -webkit-user-select: text;
@@ -16,7 +19,7 @@ input {
 
 body {
   font-family: "Open Sans", sans-serif;
-  background-color: #f5f5f5;
+  background-color: #f3f5f7;
   font-size: 1.6rem;
   box-sizing: border-box; }
 
@@ -26,6 +29,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center; }
+
+.App .spinner-container > div {
+  color: #000; }
+
+.App .no-result {
+  font-size: 18px;
+  text-align: center;
+  flex: 2; }
 
 html {
   box-sizing: border-box;
@@ -174,26 +185,44 @@ input::-moz-focus-inner {
   border: 0;
   padding: 0; }
 
+.app-header {
+  width: 100%;
+  height: 100px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  padding: 0 24px; }
+  .app-header .left-side {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .app-header .left-side > img {
+      max-height: 50px;
+      height: 100%; }
+    .app-header .left-side .app-header-title {
+      color: #fff;
+      margin-left: 12px; }
+
 .my-masonry-grid {
   display: -webkit-box;
   /* Not needed if autoprefixing */
   display: -ms-flexbox;
   /* Not needed if autoprefixing */
   display: flex;
-  margin-left: -30px;
+  margin-left: -14px;
   /* gutter size offset */
-  width: auto; }
+  width: auto;
+  flex: 2; }
 
 .my-masonry-grid_column {
-  padding-left: 30px;
+  padding-left: 15px;
   /* gutter size */
   background-clip: padding-box; }
 
 /* Style your items */
 .my-masonry-grid_column > div {
   /* change div to reference your elements you put in <Masonry> */
-  background: grey;
-  margin-bottom: 30px; }
+  margin-bottom: 15px; }
 
 @media (max-width: 800px) {
   .my-masonry-grid {
@@ -205,3 +234,121 @@ input::-moz-focus-inner {
   .my-masonry-grid_column > div {
     margin-bottom: 15px;
     /* space between items */ } }
+
+.homepage {
+  width: 100%;
+  max-width: 1140px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.08);
+  border-radius: 4px;
+  margin: 36px auto;
+  padding: 36px;
+  background: #fff;
+  border: 1px solid rgba(119, 147, 169, 0.188757); }
+  @media only screen and (max-width: 37.5em) {
+    .homepage {
+      width: 90%;
+      padding: 24px; } }
+  .homepage > section .spinner-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 2; }
+    .homepage > section .spinner-container > div {
+      color: #000; }
+  .homepage > section form {
+    width: 100%;
+    display: flex;
+    margin-bottom: 36px; }
+    .homepage > section form .search-input {
+      flex: 1;
+      padding: 20px 32px;
+      background: #f0f3f5;
+      color: #000;
+      font-size: 18px;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      border: 2px solid rgba(0, 0, 0, 0.3);
+      border-right: none; }
+      @media only screen and (max-width: 37.5em) {
+        .homepage > section form .search-input {
+          padding: 10px 12px; } }
+      .homepage > section form .search-input:focus, .homepage > section form .search-input:active, .homepage > section form .search-input:hover {
+        border: 2px solid black;
+        border-right: none;
+        transition: all .3s; }
+    .homepage > section form .submit-button {
+      border: 2px solid rgba(0, 0, 0, 0.7);
+      border-left: none;
+      background: rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      color: #fff;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .3s; }
+      .homepage > section form .submit-button:disabled {
+        border: none;
+        opacity: .6; }
+      .homepage > section form .submit-button:hover:not([disabled]) {
+        background: #000;
+        border: 2px solid #000;
+        border-left: none;
+        transition: all .3s; }
+    .homepage > section form .search-icon {
+      color: #fff;
+      font-size: 28px; }
+  .homepage > section .content-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start; }
+    @media only screen and (max-width: 37.5em) {
+      .homepage > section .content-container {
+        flex-direction: column; } }
+    .homepage > section .content-container .my-masonry-grid .card-item {
+      margin-bottom: 15px; }
+      .homepage > section .content-container .my-masonry-grid .card-item > img {
+        max-width: 250px;
+        max-height: 250px;
+        border-radius: 4px;
+        width: 100%;
+        height: auto; }
+    .homepage > section .content-container .history-section {
+      flex: 1;
+      margin-left: 24px;
+      padding: 12px;
+      border: 2px solid rgba(0, 0, 0, 0.3);
+      border-radius: 4px;
+      background: #f0f3f5;
+      max-width: 25%;
+      min-height: 45rem;
+      min-width: 200px;
+      height: 100%; }
+      @media only screen and (max-width: 37.5em) {
+        .homepage > section .content-container .history-section {
+          width: 100%;
+          min-height: auto;
+          max-width: 100%;
+          margin-left: 0;
+          margin-top: 24px; } }
+      .homepage > section .content-container .history-section h2 {
+        margin-bottom: 36px;
+        text-align: center;
+        font-size: 2.2rem;
+        margin-top: 12px; }
+      .homepage > section .content-container .history-section ul {
+        list-style: none; }
+        .homepage > section .content-container .history-section ul > li {
+          margin-bottom: 16px; }
+          .homepage > section .content-container .history-section ul > li > button {
+            border: none;
+            background: none;
+            text-decoration: underline;
+            color: rgba(0, 0, 0, 0.5);
+            transition: all .3s; }
+            .homepage > section .content-container .history-section ul > li > button:hover {
+              color: #000;
+              transition: all .3s; }

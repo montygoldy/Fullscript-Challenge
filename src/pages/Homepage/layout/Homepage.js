@@ -24,9 +24,13 @@ const Homepage = () => {
 
   // Get Random pictures on load
   useEffect(() => {  
-      UnsplashService.getRandomPhotos().then(results => {
-        setAllValues({ ...allValues, searchResults: results, isLoading: false, searchHistory: HomepageService.retrieveSearchHistory() || [] })
+    const fetchRandomPics = () => {
+       UnsplashService.getRandomPhotos().then(results => {
+        setAllValues(prevValues => ({ ...prevValues, searchResults: results, isLoading: false, searchHistory: HomepageService.retrieveSearchHistory() || [] }))
       }) ;
+    }
+
+    fetchRandomPics();
   }, [])
   
 
@@ -48,7 +52,7 @@ const Homepage = () => {
     let tempQueryString = queryString;
     
     if (!tempQueryString) {
-      queryString = allValues.search;
+      tempQueryString = allValues.search;
       
       // 1. Save in localStorage
       HomepageService.saveQuery(allValues.search);
@@ -61,9 +65,10 @@ const Homepage = () => {
       const searchResults = await UnsplashService.searchPhotos(tempQueryString);
 
       // 3. Update the state
-      setAllValues({ ...allValues, searchResults: searchResults.results, isLoading: false, searchHistory: [allValues.search, ...allValues.searchHistory] })
+      setAllValues({ ...allValues, searchResults: searchResults.results, isLoading: false, searchHistory: [allValues.search, ...allValues.searchHistory], search: "" })
     } catch (error) {
       console.log(error)
+      setAllValues({ ...allValues, isLoading: false });
     }
   };
 
@@ -73,7 +78,7 @@ const Homepage = () => {
       handleOnSearchClick();
     }
   }
-    
+
   return (
     <main className="homepage">      
       <section>
@@ -85,13 +90,16 @@ const Homepage = () => {
           onKeyPress={handleOnKeyPress}
         />
         <div className="content-container">
+
+          {/* SHow Loader
+           */}
           {
             allValues.isLoading
-            &&
-            <CircularProgress />
-          }
-
-          {
+            ?
+            <div className="spinner-container">
+              <CircularProgress />
+            </div>
+            :
             allValues.searchResults && allValues.searchResults.length && !allValues.isLoading
             ?
             <CustomMasonary 

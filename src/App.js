@@ -33,7 +33,7 @@ const App = () => {
   }, [])
 
   if (!isReady) {
-    return <div className="App"><CircularProgress /></div>;
+    return <div className="App--loading"><CircularProgress className="spinner-container" /></div>;
   }
 
   return (

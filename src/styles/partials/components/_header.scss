@@ -1,0 +1,24 @@
+.app-header {
+  width: 100%;
+  height: 100px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+
+  .left-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    >img {
+      max-height: 50px;
+      height: 100%;
+    }
+
+    .app-header-title {
+      color: #fff;
+      margin-left: 12px;
+    }
+  }
+}
