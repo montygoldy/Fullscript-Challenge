@@ -1,29 +1,45 @@
-import Unsplash from 'unsplash-js';
+import React, { useState, useEffect } from "react";
 
-import logo from './logo.svg';
-import './App.css';
+// Lib
+import axios from 'axios';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
-// TODO: Replace "APP_ACCESS_KEY" with your own key, which
-// can be generated here: https://unsplash.com/developers
-const unsplash = new Unsplash({ accessKey: 'APP_ACCESS_KEY' });
+// Components
+import Homepage from "./pages/Homepage/layout/Homepage";
+import Header from "./components/reusable/Header";
 
-function App() {
+// Styles
+import "./styles/App.css";
+
+// Utils
+import UnsplashInstance from "./utils/UnsplashInstance";
+
+const App = () => {
+
+  const [isReady, updateIsReady] = useState(false);
+
+  useEffect(() => {  
+    async function initialize() {  
+      await axios.get(`${process.env.PUBLIC_URL}/config/config.json`).then(function (res) {
+        window.config = res.data;
+      });
+
+      UnsplashInstance();
+
+      updateIsReady(true);
+    }
+
+    initialize();
+  }, [])
+
+  if (!isReady) {
+    return <div className="App"><CircularProgress /></div>;
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Homepage />
     </div>
   );
 }

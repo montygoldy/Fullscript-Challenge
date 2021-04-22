@@ -1,0 +1,71 @@
+//Breakpoints for different screens
+@mixin respond($breakpoint) {
+
+  @if $breakpoint==xxSmall {
+    @media only screen and (max-width: 23em) {
+      @content
+    }
+  }
+
+  @if $breakpoint==xSmall {
+    @media only screen and (max-width: 28.15em) {
+      @content
+    }
+  }
+
+  @if $breakpoint==phone {
+    @media only screen and (max-width: 37.5em) {
+      @content
+    }
+  }
+
+
+
+  @if $breakpoint==med-tab-port {
+    @media only screen and (max-width: 45.31em) {
+      @content
+    }
+  }
+
+  @if $breakpoint==tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content
+    }
+  }
+
+  @if $breakpoint==tab-port-high {
+    @media only screen and (max-width: 60em) {
+      @content
+    }
+  }
+
+  @if $breakpoint==tab-land {
+    @media only screen and (max-width: 75em) {
+      @content
+    }
+  }
+
+  @if $breakpoint==big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content
+    }
+  }
+
+  @if $breakpoint==medium-device {
+    @media only screen and (min-width: 75em) {
+      @content
+    }
+  }
+
+  @if $breakpoint==min-phone {
+    @media only screen and (min-width: 47.5em) {
+      @content
+    }
+  }
+
+  @if $breakpoint==max-phone {
+    @media only screen and (max-width: 44.5em) {
+      @content
+    }
+  }
+}
