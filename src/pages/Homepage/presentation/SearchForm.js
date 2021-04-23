@@ -12,7 +12,7 @@ const SearchForm =  ({ queryString, handleOnChange, handleOnSearchClick, onKeyPr
         name="search"
         className="search-input"
         placeholder="Search pictures"
-        defaultValue={queryString}
+        value={queryString}
         onChange={handleOnChange}
       />
       <button 

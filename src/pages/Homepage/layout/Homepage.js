@@ -49,23 +49,28 @@ const Homepage = () => {
   const handleOnSearchClick = async (e, queryString) => {
     e.preventDefault();
 
-    let tempQueryString = queryString;
-    
-    if (!tempQueryString) {
-      tempQueryString = allValues.search;
-      
+    let tempQueryString = allValues.search;
+    let tempSearchHistory = [allValues.search, ...allValues.searchHistory];
+    let tempSearch = allValues.search;
+
+    if (queryString) {
+      tempQueryString = queryString;
+      tempSearchHistory = allValues.searchHistory;
+      tempSearch = queryString;
+    } else {
       // 1. Save in localStorage
       HomepageService.saveQuery(allValues.search);
     }
-
+    
     try {
-      setAllValues({ ...allValues, search: "", isLoading: true });
+      setAllValues(prevValues => ({ ...prevValues, isLoading: true, search: tempSearch }));
+
       
       // 2. Api call
       const searchResults = await UnsplashService.searchPhotos(tempQueryString);
-
+      
       // 3. Update the state
-      setAllValues({ ...allValues, searchResults: searchResults.results, isLoading: false, searchHistory: [allValues.search, ...allValues.searchHistory], search: "" })
+      setAllValues(prevValues => ({ ...prevValues, searchResults: searchResults.results, isLoading: false, searchHistory: tempSearchHistory }))
     } catch (error) {
       console.log(error)
       setAllValues({ ...allValues, isLoading: false });

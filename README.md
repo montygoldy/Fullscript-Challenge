@@ -1,9 +1,29 @@
-# Getting Started with Fullscript Unsplash
+# FSUnsplash
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Running the app
+1. Git clone the repo.
+2. Cd to the app folder and install dependencies by running "npm i" in terminal.
+3. After finishing run the app by executing "npm run start" or "yarn start". 
+4. Execute npm test to run tests and see coverage.
 
-It has been slightly edited for our Fullscript recruitment process, to include the hookup for Unsplash API.
+### Features
+1. Configurability
+. 
+2. Search Persistance.
+3. Responsive UI.
+4. Reusable components.
+5. Hooks
 
-### Step 1
+## Screenshots
 
-Clone this repo to your local machine, and use it to set up your own repo on GitHub/Bitbucket/Gitlab!
+### ADD and DELETE Entry + CLEAR DATA
+
+!["Screen shot for Add and delete entry"]()
+
+### FILTER and SORT Entries
+
+!["Screen shot for filter and sort entries"]()
+
+### CONFIGURABILITY
+
+!["Screen shot for Configurability"]()
