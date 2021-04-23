@@ -16,14 +16,7 @@
 
 ## Screenshots
 
-### ADD and DELETE Entry + CLEAR DATA
+### APP
 
-!["Screen shot for Add and delete entry"]()
+!["Screen shot for Add and delete entry"](https://github.com/montygoldy/Fullscript-Challenge/blob/main/gifs/ezgif.com-gif-maker.gif?raw=true)
 
-### FILTER and SORT Entries
-
-!["Screen shot for filter and sort entries"]()
-
-### CONFIGURABILITY
-
-!["Screen shot for Configurability"]()
