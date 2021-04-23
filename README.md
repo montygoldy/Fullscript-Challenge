@@ -18,5 +18,5 @@
 
 ### APP
 
-!["Screen shot for Add and delete entry"](https://github.com/montygoldy/Fullscript-Challenge/blob/main/gifs/ezgif.com-gif-maker.gif?raw=true)
+!["Screen shot for Add and delete entry"](https://github.com/montygoldy/Fullscript-Challenge/blob/main/gifs/app.gif?raw=true)
 
